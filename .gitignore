@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+output/index/
+output/*.json
+output/*.md
+*.zip

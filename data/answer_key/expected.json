@@ -1,0 +1,23 @@
+{
+  "checklist": {
+    "a": {"acceptable": ["WEAK", "MISSING"], "gaps": "G01 MDD reference, G10 no regulatory significance check on changes"},
+    "b": {"acceptable": ["MISSING"], "gaps": "G13 no GSPR identification"},
+    "c": {"acceptable": ["COVERED", "WEAK"], "gaps": "mostly covered; G08 inputs"},
+    "d": {"acceptable": ["WEAK"], "gaps": "G07 certificate-only supplier approval"},
+    "e": {"acceptable": ["WEAK"], "gaps": "G09 ISO 14971:2007"},
+    "f": {"acceptable": ["MISSING", "WEAK"], "gaps": "G12 no clinical evaluation / PMCF procedure"},
+    "g": {"acceptable": ["COVERED", "WEAK"], "gaps": "covered (should not be a gap)"},
+    "h": {"acceptable": ["MISSING"], "gaps": "G11 no UDI procedure"},
+    "i": {"acceptable": ["WEAK"], "gaps": "G06 PMS Report instead of PSUR for Class IIa"},
+    "j": {"acceptable": ["WEAK"], "gaps": "G15 only HPRA vigilance communication"},
+    "k": {"acceptable": ["WEAK"], "gaps": "G05 30 days instead of 15/10/2; G04 monthly complaint review"},
+    "l": {"acceptable": ["WEAK"], "gaps": "G03 no CAPA effectiveness check"},
+    "m": {"acceptable": ["COVERED", "WEAK"], "gaps": "covered (G08 minor)"}
+  },
+  "manual_checks": [
+    "G02: SOP-001 vs SOP-005 contradiction on training timing",
+    "G14: no PRRC (MDR Art. 15) named anywhere",
+    "G05: did (k) mention the 30-day error specifically, or only the monthly review?",
+    "G06: did (i) mention PSUR vs PMS Report, or mark it weak for another reason?"
+  ]
+}
