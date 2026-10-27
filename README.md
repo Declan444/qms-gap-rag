@@ -47,6 +47,8 @@ Baseline (all off): 6 of 13, every error too generous. Switch on one at a time i
 - `PROMPT_STYLE = "strict"`: the model checks each element of the requirement; a title or passing mention is not coverage.
 - `USE_REGULATION = True`: the model also reads the relevant MDR rules (`data/regulation/`), so it can spot wrong deadlines and outdated standards.
 
+Scoring gives two numbers: verdict (is the verdict acceptable?) and reason (does the reason name the planted problem?). The reason score is the honest one: a model that says WEAK to everything scores well on verdicts alone. `python score.py --all` rescores every saved report.
+
 Then combine them. Honest caveat: the fixes were designed after seeing the baseline failures on this test set. A fair final check is a second mock QMS with different planted gaps.
 
 ## Known limits
