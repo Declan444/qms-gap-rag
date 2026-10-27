@@ -19,3 +19,18 @@ LLM_MODEL = "qwen2.5:7b-instruct"
 TOP_K = 4                 # chunks given to the model per checklist item
 MAX_CHUNK_WORDS = 120     # long sections are split again (the lecture used 120)
 MIN_SIMILARITY = 0.30     # below this, no chunk counts as relevant -> MISSING without asking the LLM
+
+# ---- Improvement experiments: switch on ONE at a time, then rescore ----
+# Experiment 1 - retrieval. "chunks": the model reads the TOP_K closest sections (baseline).
+#                "full_sop": find the most relevant procedures, then the model reads them in full.
+CONTEXT_MODE = "chunks"
+FULL_SOP_COUNT = 2        # how many whole procedures the model reads in full_sop mode
+
+# Experiment 2 - prompt. "basic" (baseline) or "strict": check each element of the requirement,
+#                and a mention, title or purpose statement does not count as coverage.
+PROMPT_STYLE = "basic"
+
+# Experiment 3 - give the model the rules themselves (data/regulation/), not just the company's procedures.
+USE_REGULATION = False
+REGULATION_FILE = ROOT / "data" / "regulation" / "mdr_reference_notes.md"
+REGULATION_TOP_K = 3

@@ -39,16 +39,18 @@ python score.py           # compare against the answer key
 - `data/answer_key/` - the test set. Never indexed.
 - `output/` - index and reports
 
-## Experiments worth one run each (change one setting, rebuild if needed, rescore)
+## Improvement experiments
 
-- `MAX_CHUNK_WORDS` 120 -> 60 (rebuild index). The lecture's flight question flipped on this.
-- `TOP_K` 4 -> 2 or 8. More context is not always better ("lost in the middle").
-- `MIN_SIMILARITY` 0.30 -> 0.40. Does UDI (h) get caught as MISSING without the model being asked?
-- `LLM_MODEL` 3b vs 7b. Same test set, different brains.
+Baseline (all off): 6 of 13, every error too generous. Switch on one at a time in `config.py` (or step 5 of the notebook), rerun `gap_report.py` and `score.py`. Each run is appended to `output/run_log.csv`.
 
-Keep a log of each run's score. That table is the blog post.
+- `CONTEXT_MODE = "full_sop"`: find the most relevant procedures, then the model reads them whole. Fixes the search handing over Purpose/Scope sections instead of the section with the problem.
+- `PROMPT_STYLE = "strict"`: the model checks each element of the requirement; a title or passing mention is not coverage.
+- `USE_REGULATION = True`: the model also reads the relevant MDR rules (`data/regulation/`), so it can spot wrong deadlines and outdated standards.
+
+Then combine them. Honest caveat: the fixes were designed after seeing the baseline failures on this test set. A fair final check is a second mock QMS with different planted gaps.
 
 ## Known limits
 
-- The model only sees retrieved extracts, not the law itself. It will struggle to know that 30 days is wrong (MDR Art. 87) or that Class IIa needs a PSUR. Stage 3 adds the regulation text as a second source.
+- With `USE_REGULATION` off, the model only sees the company's procedures, not the law, so it cannot know that 30 days is wrong (MDR Art. 87) or that Class IIa needs a PSUR.
+- `data/regulation/` is paraphrased for testing; check it against EUR-Lex.
 - The SOP-to-SOP contradiction (G02) is outside the checklist; it needs a different check.
