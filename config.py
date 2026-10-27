@@ -34,3 +34,14 @@ PROMPT_STYLE = "basic"
 USE_REGULATION = False
 REGULATION_FILE = ROOT / "data" / "regulation" / "mdr_reference_notes.md"
 REGULATION_TOP_K = 3
+
+# Cleaner search for the requirement check: ignore sections that rarely hold the problem
+SKIP_BOILERPLATE = False
+BOILERPLATE_SECTIONS = ("(intro)", "1. Purpose", "2. Scope", "6. Records")
+
+# ---- Passes 2 and 3 (review.py) ----
+# What the tool knows about the company. A real tool would hold this in a settings file.
+COMPANY_CONTEXT = ("Slieve Bloom Medical Ltd manufactures the DrainSure single-use wound drainage system, "
+                   "a Class IIa medical device sold in the EU under the MDR (Regulation (EU) 2017/745).")
+SECTION_RULES_TOP_K = 3   # pass 2: rules compared with each procedure section
+CONFLICT_PAIRS = 20       # pass 3: most similar section pairs (from different procedures) to compare

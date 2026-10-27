@@ -30,7 +30,17 @@ Click the Open in Colab badge, set Runtime › Change runtime type › T4 GPU, a
 python build_index.py     # chunk and embed the SOPs (rerun only when SOPs or chunk settings change)
 python gap_report.py      # one verdict per checklist item -> output/gap_report_<time>.md
 python score.py           # compare against the answer key
+python review.py          # passes 2 and 3
+python score.py --total   # hidden mistakes found, out of 15
 ```
+
+## Three passes, like an auditor
+
+1. **Requirement check** (`gap_report.py`): each requirement looks for the procedure that covers it. Finds what's **missing**.
+2. **Section vs rules** (`review.py`): every procedure section is compared with the closest MDR rules. Finds what's **wrong**.
+3. **Section vs section** (`review.py`): similar sections from different procedures are compared. Finds **conflicts**.
+
+`python score.py --total` reports how many of the 15 planted mistakes the passes found between them, and how many flags match nothing planted.
 
 ## Folders
 

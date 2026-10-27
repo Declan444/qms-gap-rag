@@ -134,7 +134,10 @@
       ],
       "gaps": "G03 no CAPA effectiveness check",
       "reason_keywords": [
-        "effective"
+        "effectiveness",
+        "verified as effective",
+        "verify that the action",
+        "was effective"
       ]
     },
     "m": {
@@ -160,5 +163,187 @@
     "G02 training timing contradiction": [
       "effective date"
     ]
+  },
+  "hidden_mistakes": {
+    "G01 MDD referenced instead of MDR": {
+      "gap": [
+        "a"
+      ],
+      "review_docs": [
+        "SOP-001_Document_Control"
+      ],
+      "keywords": [
+        "mdd",
+        "93/42",
+        "directive"
+      ]
+    },
+    "G02 Training timing contradiction (SOP-001 vs SOP-005)": {
+      "review_pair": [
+        "SOP-001_Document_Control",
+        "SOP-005_Training_and_Competence"
+      ],
+      "keywords": [
+        "train",
+        "effective",
+        "30 days",
+        "before"
+      ]
+    },
+    "G03 No CAPA effectiveness check": {
+      "gap": [
+        "l"
+      ],
+      "review_docs": [
+        "SOP-002_CAPA"
+      ],
+      "keywords": [
+        "effectiveness",
+        "verified as effective",
+        "verify that the action",
+        "was effective"
+      ]
+    },
+    "G04 Complaints only reviewed monthly": {
+      "gap": [
+        "k"
+      ],
+      "review_docs": [
+        "SOP-003_Complaint_Handling"
+      ],
+      "keywords": [
+        "monthly",
+        "promptly",
+        "immediate"
+      ]
+    },
+    "G05 Serious incidents within 30 days (MDR: 15/10/2)": {
+      "gap": [
+        "k"
+      ],
+      "review_docs": [
+        "SOP-008_PMS_and_Vigilance"
+      ],
+      "keywords": [
+        "30 ",
+        "30-day",
+        "15 days",
+        "15-day",
+        "10 days",
+        "2 days"
+      ]
+    },
+    "G06 PMS Report instead of PSUR for Class IIa": {
+      "gap": [
+        "i"
+      ],
+      "review_docs": [
+        "SOP-008_PMS_and_Vigilance"
+      ],
+      "keywords": [
+        "psur",
+        "periodic safety update",
+        "article 86"
+      ]
+    },
+    "G07 Certificate-only supplier approval": {
+      "gap": [
+        "d"
+      ],
+      "review_docs": [
+        "SOP-004_Supplier_Control"
+      ],
+      "keywords": [
+        "certificate",
+        "critical",
+        "audit",
+        "steril",
+        "risk-based",
+        "risk based"
+      ]
+    },
+    "G08 Management review omits PMS and regulatory change": {
+      "gap": [
+        "c",
+        "m"
+      ],
+      "review_docs": [
+        "SOP-006_Management_Review"
+      ],
+      "keywords": [
+        "post-market",
+        "surveillance",
+        "regulatory requirement",
+        "regulatory change"
+      ]
+    },
+    "G09 ISO 14971:2007 (current: 2019)": {
+      "gap": [
+        "e"
+      ],
+      "review_docs": [
+        "SOP-007_Design_and_Change_Control"
+      ],
+      "keywords": [
+        "2007",
+        "2019",
+        "outdated",
+        "superseded"
+      ]
+    },
+    "G10 Design changes not assessed for regulatory significance": {
+      "gap": [
+        "a"
+      ],
+      "review_docs": [
+        "SOP-007_Design_and_Change_Control"
+      ],
+      "keywords": [
+        "significan",
+        "notified body",
+        "notify"
+      ]
+    },
+    "G11 No UDI procedure": {
+      "gap_missing": [
+        "h"
+      ]
+    },
+    "G12 No clinical evaluation / PMCF procedure": {
+      "gap": [
+        "f"
+      ],
+      "keywords": [
+        "pmcf",
+        "clinical evaluation plan",
+        "clinical evaluation procedure",
+        "annex xiv"
+      ]
+    },
+    "G13 No GSPR identification": {
+      "gap": [
+        "b"
+      ],
+      "keywords": [
+        "gspr",
+        "general safety and performance"
+      ]
+    },
+    "G14 No PRRC named": {
+      "anywhere": [
+        "prrc",
+        "person responsible for regulatory compliance"
+      ]
+    },
+    "G15 Communication only covers vigilance to HPRA": {
+      "gap": [
+        "j"
+      ],
+      "keywords": [
+        "notified bod",
+        "economic operator",
+        "stakeholder"
+      ]
+    }
   }
 }

@@ -97,6 +97,8 @@ def main():
     for item in items:
         q = model.encode([f"{item['title']}: {item['text']}"], normalize_embeddings=True)[0]
         scores = vectors @ q
+        if config.SKIP_BOILERPLATE:
+            scores = np.where([c["section"].startswith(config.BOILERPLATE_SECTIONS) for c in chunks], -1.0, scores)
         order = np.argsort(-scores)
         top_chunks = [{**chunks[i], "score": float(scores[i])} for i in order[: config.TOP_K]]
 
@@ -150,7 +152,8 @@ def main():
 
 def settings_line():
     return (f"Model: {config.LLM_MODEL} | context={config.CONTEXT_MODE} | prompt={config.PROMPT_STYLE} | "
-            f"regulation={'on' if config.USE_REGULATION else 'off'} | top_k={config.TOP_K}, "
+            f"regulation={'on' if config.USE_REGULATION else 'off'} | "
+            f"skip_boilerplate={config.SKIP_BOILERPLATE} | top_k={config.TOP_K}, "
             f"chunk={config.MAX_CHUNK_WORDS} words, threshold={config.MIN_SIMILARITY}")
 
 
